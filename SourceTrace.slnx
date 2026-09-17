@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SourceTrace.Core/SourceTrace.Core.csproj" />
+    <Project Path="src/SourceTrace.Vsix/SourceTrace.Vsix.csproj"><Deploy Solution="Debug|Any CPU" /></Project>
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SourceTrace.Tests/SourceTrace.Tests.csproj" />
+    <Project Path="tests/SourceTrace.Smoke/SourceTrace.Smoke.csproj" />
+    <Project Path="tests/SourceTrace.EditorTests/SourceTrace.EditorTests.csproj" />
+  </Folder>
+  <Folder Name="/samples/"><Project Path="samples/TraceDemo/TraceDemo.csproj" /></Folder>
+</Solution>

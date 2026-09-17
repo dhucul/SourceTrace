@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <VSSDKBuildToolsAutoSetup>true</VSSDKBuildToolsAutoSetup>
+    <VsixDeployOnDebug>true</VsixDeployOnDebug>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <AssemblyName>SourceTrace</AssemblyName>
+    <RootNamespace>SourceTrace</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <VSCTCompile Include="Commands.vsct"><ResourceName>Menus.ctmenu</ResourceName></VSCTCompile>
+    <Reference Include="System.Design" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <ProjectCapability Include="CreateVsixContainer" />
+    <ProjectReference Include="..\SourceTrace.Core\SourceTrace.Core.csproj" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.14.40265" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.9.820" PrivateAssets="all" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$(EnableIntegrationDiagnostics)' == 'true'">
+    <DefineConstants>$(DefineConstants);SOURCETRACE_TEST_DIAGNOSTICS</DefineConstants>
+  </PropertyGroup>
+</Project>
